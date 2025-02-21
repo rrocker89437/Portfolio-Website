@@ -1,0 +1,35 @@
+@use "../util/" as u;
+
+.wrapper {
+  max-width: u.rem(1175);
+  margin: 0 auto;
+  padding: u.rem(8) u.rem(6);
+}
+
+.bg-tabs {
+  background-color: var(--bg-tabs);
+}
+
+.flex {
+  display: flex;
+}
+
+.jc-c {
+  justify-content: center;
+}
+
+.jc-sb {
+  justify-content: space-between;
+}
+
+.ai-c {
+  align-items: center;
+}
+
+.flex-d-col {
+  flex-direction: column;
+}
+
+.mb-30 {
+  margin-bottom: u.rem(30);
+}

@@ -1,0 +1,33 @@
+@use "../util/" as u;
+
+// .content {
+//   max-width: u.rem(1175);
+//   height: 100%;
+//   margin: 0 auto;
+//   border: u.rem(6) solid var(--bg-seach-bookmarks);
+
+//   .wrapper {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     gap: u.rem(25);
+
+//     .main-content {
+//       width: u.rem(700);
+//       text-align: center;
+
+//       h1 {
+//         font-size: u.rem(64);
+//       }
+
+//       h2 {
+//         font-size: u.rem(32);
+//         margin-bottom: u.rem(20);
+//       }
+
+//       p {
+//         font-size: u.rem(19);
+//       }
+//     }
+//   }
+// }

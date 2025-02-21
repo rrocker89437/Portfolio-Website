@@ -1,0 +1,54 @@
+:root {
+  /* Background Colors */
+  /* Tabs */
+  //   --------------------------------
+  --bg-tabs: #2c3737;
+  --bg-tabs-hover: #444e4e;
+  --bg-tabs-active: #465858;
+  --bg-x-hover: #6b8080;
+
+  --bg-search-tabs: #465858;
+  --bg-search-tabs-hover: #6b8080;
+
+  /* Close/Expand/Minimize */
+  //   --------------------------------
+  --bg-minimize-expand-window-hover: #465858;
+  --bg-close-window-hover: #d30000;
+
+  /* Search/Bookmarks */
+  //   --------------------------------
+  --bg-seach-bookmarks: #465858;
+  --bg-search-bookmarks-buttons-hover: #6b8080;
+  --bg-arrow: #a5a5a5;
+
+  --bg-search-bar: #2c3737;
+  --bg-search-bar-hover: #1a1919;
+  --bg-search-bar-btn: #444e4e;
+  --bg-search-bar-btn-hover: #5d6969;
+
+  --bg-extensions-border: #a5a5a5;
+  --bg-popup-border: #838383;
+
+  --bg-profile: #5c6bc0;
+
+  /* Buttons */
+  //   --------------------------------
+  --bg-x-hover: #6b8080;
+  --bg-newtab-hover: #6b8080;
+
+  /* Visual Seperators */
+  //   --------------------------------
+  --bg-tab-line-lt: #7a7a7a;
+  --bg-tab-line-drk: #000000;
+
+  /* Text Colors */
+  //   --------------------------------
+  --tc-white: #fff;
+  --tc-gray-lt: #a5a5a5;
+
+  /* Components */
+  //   --------------------------------
+  --b-rad: 10px;
+  --b-rad-20: 20px;
+  --transition: all 0.3s ease-in-out;
+}

@@ -1,0 +1,276 @@
+@use "../util/" as u;
+
+header {
+  max-width: u.rem(1175);
+  margin: 0 auto;
+
+  .tabs {
+    position: relative;
+
+    .search-tabs-btn {
+      width: u.rem(30);
+      height: u.rem(30);
+      border-radius: var(--b-rad);
+      background-color: var(--bg-search-tabs);
+      color: var(--tc-white);
+      transition: var(--transition);
+      z-index: 2;
+
+      &:hover {
+        background-color: var(--bg-search-tabs-hover);
+      }
+    }
+
+    .tab {
+      position: relative;
+      overflow: visible;
+      margin-left: u.rem(15);
+      padding: u.rem(5) u.rem(10);
+      width: u.rem(200);
+      height: u.rem(40);
+      border-radius: var(--b-rad);
+      transition: var(--transition);
+      cursor: default;
+
+      &:hover {
+        background-color: var(--bg-tabs-hover);
+      }
+
+      .bar {
+        position: absolute;
+        width: u.rem(180);
+        height: u.rem(10);
+        background-color: var(--bg-tabs-active);
+        bottom: u.rem(-10);
+      }
+
+      .tab-name {
+        background-color: transparent;
+        color: var(--tc-white);
+      }
+
+      .tab-x {
+        padding: u.rem(3);
+        border-radius: 50%;
+        background-color: transparent;
+        transition: var(--transition);
+
+        &:hover {
+          background-color: var(--bg-x-hover);
+        }
+      }
+    }
+
+    .tab-line {
+      margin-left: u.rem(15);
+      width: u.rem(1);
+      height: u.rem(24);
+      background-color: var(--bg-tab-line-lt);
+    }
+
+    .tab-active {
+      position: relative;
+      z-index: 0;
+      background-color: var(--bg-tabs-active);
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        width: u.rem(25);
+        height: u.rem(25);
+        bottom: u.rem(-8);
+        border-radius: 50%;
+        background-color: var(--bg-tabs);
+        clip-path: inset(u.rem(-40)); /* Constrains to the tab */
+      }
+
+      &::before {
+        left: u.rem(-24.85);
+        box-shadow: u.rem(16) u.rem(10) 0 var(--bg-tabs-active);
+      }
+
+      &::after {
+        right: u.rem(-25.3);
+        box-shadow: u.rem(-16) u.rem(10) 0 var(--bg-tabs-active);
+      }
+
+      &:hover {
+        background-color: var(--bg-tabs-active);
+      }
+    }
+
+    .new-tab {
+      margin-left: u.rem(15);
+      width: u.rem(24);
+      height: u.rem(24);
+      border-radius: 50%;
+      background-color: transparent;
+      color: var(--tc-white);
+      transition: var(--transition);
+      z-index: 10;
+
+      &:hover {
+        background-color: var(--bg-newtab-hover);
+      }
+    }
+  }
+
+  .close-expand-minimize {
+    .window-controls {
+      position: relative;
+
+      .controls {
+        position: absolute;
+        width: u.rem(56);
+        height: u.rem(56);
+        top: u.rem(-28);
+        right: u.rem(-6);
+        background-color: transparent;
+        color: var(--tc-gray-lt);
+        transition: var(--transition);
+
+        &:hover {
+          background-color: var(--bg-minimize-expand-window-hover);
+          color: var(--tc-white);
+        }
+      }
+      .expand {
+        right: u.rem(56);
+      }
+
+      .minimize {
+        right: u.rem(112);
+        padding-bottom: u.rem(10);
+      }
+
+      .close {
+        &:hover {
+          background-color: var(--bg-close-window-hover);
+        }
+      }
+    }
+  }
+
+  .search-bar {
+    width: 100%;
+    height: u.rem(43);
+    background-color: var(--bg-seach-bookmarks);
+
+    button {
+      width: u.rem(24);
+      height: u.rem(24);
+      border-radius: 50%;
+      background-color: transparent;
+      color: var(--tc-white);
+      transition: var(--transition);
+
+      &:hover {
+        background-color: var(--bg-search-bookmarks-buttons-hover);
+      }
+    }
+
+    .nav-buttons,
+    .extensions,
+    .browser-controls {
+      gap: u.rem(10);
+    }
+
+    .input-wrapper {
+      position: relative;
+      width: u.rem(700);
+      display: flex;
+      align-items: center;
+    }
+
+    input {
+      width: 246%;
+      padding: u.rem(2) u.rem(40); /* Ensure padding accounts for icons */
+      border: none;
+      background-color: var(--bg-search-bar);
+      border-radius: 100vh;
+      transition: var(--transition);
+
+      &:hover {
+        background-color: var(--bg-search-bar-hover);
+      }
+    }
+
+    .svg-toggle {
+      position: absolute;
+      z-index: 1;
+    }
+
+    .svg-toggle-left {
+      left: u.rem(4);
+      z-index: 1;
+    }
+
+    .svg-toggle-right {
+      right: u.rem(-220); //10px
+    }
+
+    .tab-line {
+      margin-left: u.rem(10);
+      width: u.rem(1);
+      height: u.rem(24);
+      background-color: var(--bg-tab-line-lt);
+    }
+
+    .user {
+      background-color: var(--bg-profile);
+    }
+  }
+
+  .skills {
+    width: 100%;
+    height: u.rem(55);
+    background-color: var(--bg-seach-bookmarks);
+
+    /* button:not(:last-child) {
+      margin-right: 10px;
+    } */
+
+    .skills-btn {
+      margin: 0 u.rem(8);
+      width: u.rem(24);
+      height: u.rem(24);
+      border-radius: 50%;
+      border: none;
+      background-color: transparent;
+      color: var(--tc-white);
+      transition: var(--transition);
+
+      &:hover {
+        background-color: var(--bg-search-bookmarks-buttons-hover);
+      }
+    }
+
+    .tab-line {
+      margin: 0 u.rem(10);
+      width: u.rem(1);
+      height: u.rem(24);
+      background-color: var(--bg-tab-line-lt);
+    }
+
+    .skill {
+      margin-right: u.rem(5);
+      padding: 0 u.rem(10);
+      /* width: 125px; */
+      width: fit-content;
+      height: u.rem(24);
+      border-radius: 100vh;
+      background-color: transparent;
+      color: var(--tc-white);
+      transition: var(--transition);
+
+      p {
+        margin-left: u.rem(5);
+      }
+
+      &:hover {
+        background-color: var(--bg-search-bookmarks-buttons-hover);
+      }
+    }
+  }
+}

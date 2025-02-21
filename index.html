@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <title>Document</title>
+
+    <!-- Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/0357afbd7c.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header class="header">
+      <div class="wrapper flex jc-sb ai-c bg-tabs">
+        <!-- Tabs Section -->
+        <!-- ---------------------------------------------------------------------------- -->
+        <section class="tabs flex ai-c">
+          <button class="search-tabs-btn flex jc-c ai-c">
+            <i class="fa-solid fa-arrow-down"></i>
+          </button>
+
+          <a
+            href="#"
+            data-content="home"
+            class="tab tab-active flex jc-sb ai-c"
+          >
+            <div class="bar"></div>
+            <button class="tab-name">Home</button>
+            <button class="tab-x">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 384 512"
+                width="12"
+                height="12"
+                fill="#ffffff"
+              >
+                <path
+                  d="M376.6 84.5c11.3-13.6 9.5-33.8-4.1-45.1s-33.8-9.5-45.1 4.1L192 206 56.6 43.5C45.3 29.9 25.1 28.1 11.5 39.4S-3.9 70.9 7.4 84.5L150.3 256 7.4 427.5c-11.3 13.6-9.5 33.8 4.1 45.1s33.8 9.5 45.1-4.1L192 306 327.4 468.5c11.3 13.6 31.5 15.4 45.1 4.1s15.4-31.5 4.1-45.1L233.7 256 376.6 84.5z"
+                />
+              </svg>
+            </button>
+          </a>
+
+          <div class="tab-line"></div>
+
+          <a href="#" data-content="about" class="tab flex jc-sb ai-c">
+            <button class="tab-name">About</button>
+            <button class="tab-x">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 384 512"
+                width="12"
+                height="12"
+                fill="#ffffff"
+              >
+                <path
+                  d="M376.6 84.5c11.3-13.6 9.5-33.8-4.1-45.1s-33.8-9.5-45.1 4.1L192 206 56.6 43.5C45.3 29.9 25.1 28.1 11.5 39.4S-3.9 70.9 7.4 84.5L150.3 256 7.4 427.5c-11.3 13.6-9.5 33.8 4.1 45.1s33.8 9.5 45.1-4.1L192 306 327.4 468.5c11.3 13.6 31.5 15.4 45.1 4.1s15.4-31.5 4.1-45.1L233.7 256 376.6 84.5z"
+                />
+              </svg>
+            </button>
+          </a>
+
+          <div class="tab-line"></div>
+
+          <a href="#" data-content="projects" class="tab flex jc-sb ai-c">
+            <button class="tab-name">Projects</button>
+            <button class="tab-x">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 384 512"
+                width="12"
+                height="12"
+                fill="#ffffff"
+              >
+                <path
+                  d="M376.6 84.5c11.3-13.6 9.5-33.8-4.1-45.1s-33.8-9.5-45.1 4.1L192 206 56.6 43.5C45.3 29.9 25.1 28.1 11.5 39.4S-3.9 70.9 7.4 84.5L150.3 256 7.4 427.5c-11.3 13.6-9.5 33.8 4.1 45.1s33.8 9.5 45.1-4.1L192 306 327.4 468.5c11.3 13.6 31.5 15.4 45.1 4.1s15.4-31.5 4.1-45.1L233.7 256 376.6 84.5z"
+                />
+              </svg>
+            </button>
+          </a>
+
+          <div class="tab-line"></div>
+
+          <a href="#" data-content="contact" class="tab flex jc-sb ai-c">
+            <button class="tab-name">Contact</button>
+            <button class="tab-x">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 384 512"
+                width="12"
+                height="12"
+                fill="#ffffff"
+              >
+                <path
+                  d="M376.6 84.5c11.3-13.6 9.5-33.8-4.1-45.1s-33.8-9.5-45.1 4.1L192 206 56.6 43.5C45.3 29.9 25.1 28.1 11.5 39.4S-3.9 70.9 7.4 84.5L150.3 256 7.4 427.5c-11.3 13.6-9.5 33.8 4.1 45.1s33.8 9.5 45.1-4.1L192 306 327.4 468.5c11.3 13.6 31.5 15.4 45.1 4.1s15.4-31.5 4.1-45.1L233.7 256 376.6 84.5z"
+                />
+              </svg>
+            </button>
+          </a>
+
+          <button class="new-tab">
+            <i class="fa-solid fa-plus"></i>
+          </button>
+        </section>
+
+        <!-- Window Controls -->
+        <!-- ---------------------------------------------------------------------------- -->
+        <section class="close-expand-minimize">
+          <div class="window-controls">
+            <button class="controls minimize">
+              <i class="fa-solid fa-window-minimize"></i>
+            </button>
+            <button class="controls expand">
+              <i class="fa-regular fa-square"></i>
+            </button>
+            <button class="controls close">
+              <i class="fa-solid fa-x"></i>
+            </button>
+          </div>
+        </section>
+      </div>
+
+      <!-- Search Bar Section -->
+      <!-- ---------------------------------------------------------------------------- -->
+      <section class="search-bar">
+        <div class="wrapper flex jc-sb ai-c">
+          <div class="nav-buttons flex jc-c ai-c">
+            <button class="flex jc-c ai-c">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 448 512"
+                width="18"
+                height="18"
+                fill="#fff"
+              >
+                <path
+                  d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"
+                />
+              </svg>
+            </button>
+            <button class="flex jc-c ai-c">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 448 512"
+                width="18"
+                height="18"
+                fill="#a5a5a5"
+              >
+                <path
+                  d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"
+                />
+              </svg>
+            </button>
+            <button class="flex jc-c ai-c">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 512 512"
+                width="18"
+                height="18"
+                fill="#fff"
+              >
+                <path
+                  d="M463.5 224l8.5 0c13.3 0 24-10.7 24-24l0-128c0-9.7-5.8-18.5-14.8-22.2s-19.3-1.7-26.2 5.2L413.4 96.6c-87.6-86.5-228.7-86.2-315.8 1c-87.5 87.5-87.5 229.3 0 316.8s229.3 87.5 316.8 0c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0c-62.5 62.5-163.8 62.5-226.3 0s-62.5-163.8 0-226.3c62.2-62.2 162.7-62.5 225.3-1L327 183c-6.9 6.9-8.9 17.2-5.2 26.2s12.5 14.8 22.2 14.8l119.5 0z"
+                />
+              </svg>
+            </button>
+            <button class="flex jc-c ai-c">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 576 512"
+                width="18"
+                height="18"
+                fill="#fff"
+              >
+                <path
+                  d="M575.8 255.5c0 18-15 32.1-32 32.1l-32 0 .7 160.2c0 2.7-.2 5.4-.5 8.1l0 16.2c0 22.1-17.9 40-40 40l-16 0c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1L416 512l-24 0c-22.1 0-40-17.9-40-40l0-24 0-64c0-17.7-14.3-32-32-32l-64 0c-17.7 0-32 14.3-32 32l0 64 0 24c0 22.1-17.9 40-40 40l-24 0-31.9 0c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2l-16 0c-22.1 0-40-17.9-40-40l0-112c0-.9 0-1.9 .1-2.8l0-69.7-32 0c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"
+                />
+              </svg>
+            </button>
+          </div>
+
+          <!-- Search Bar -->
+          <!-- ---------------------------------------------------------------------------- -->
+          <div class="input-wrapper">
+            <button class="svg-toggle svg-toggle-left flex jc-c ai-c">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 512 512"
+                width="18"
+                height="18"
+                fill="#fff"
+              >
+                <path
+                  d="M0 416c0 17.7 14.3 32 32 32l54.7 0c12.3 28.3 40.5 48 73.3 48s61-19.7 73.3-48L480 448c17.7 0 32-14.3 32-32s-14.3-32-32-32l-246.7 0c-12.3-28.3-40.5-48-73.3-48s-61 19.7-73.3 48L32 384c-17.7 0-32 14.3-32 32zm128 0a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zM320 256a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zm32-80c-32.8 0-61 19.7-73.3 48L32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l246.7 0c12.3 28.3 40.5 48 73.3 48s61-19.7 73.3-48l54.7 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-54.7 0c-12.3-28.3-40.5-48-73.3-48zM192 128a32 32 0 1 1 0-64 32 32 0 1 1 0 64zm73.3-64C253 35.7 224.8 16 192 16s-61 19.7-73.3 48L32 64C14.3 64 0 78.3 0 96s14.3 32 32 32l86.7 0c12.3 28.3 40.5 48 73.3 48s61-19.7 73.3-48L480 128c17.7 0 32-14.3 32-32s-14.3-32-32-32L265.3 64z"
+                />
+              </svg>
+            </button>
+            <form action="">
+              <input
+                type="text"
+                placeholder="https://www.figma.com/design/wv0NhXIQEMvTfZkGmAeTha/Untitled?node-id=0-1&p=f&t=x4mbAXfn95iJhzZw-0"
+                style="color: #ffffff"
+                onfocus="this.value='Welcome To My Portfolio'; this.style.color='#ffffff'"
+              />
+            </form>
+
+            <button class="svg-toggle svg-toggle-right flex jc-c ai-c">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 576 512"
+                width="18"
+                height="18"
+                fill="#fff"
+              >
+                <path
+                  d="M287.9 0c9.2 0 17.6 5.2 21.6 13.5l68.6 141.3 153.2 22.6c9 1.3 16.5 7.6 19.3 16.3s.5 18.1-5.9 24.5L433.6 328.4l26.2 155.6c1.5 9-2.2 18.1-9.7 23.5s-17.3 6-25.3 1.7l-137-73.2L151 509.1c-8.1 4.3-17.9 3.7-25.3-1.7s-11.2-14.5-9.7-23.5l26.2-155.6L31.1 218.2c-6.5-6.4-8.7-15.9-5.9-24.5s10.3-14.9 19.3-16.3l153.2-22.6L266.3 13.5C270.4 5.2 278.7 0 287.9 0zm0 79L235.4 187.2c-3.5 7.1-10.2 12.1-18.1 13.3L99 217.9 184.9 303c5.5 5.5 8.1 13.3 6.8 21L171.4 443.7l105.2-56.2c7.1-3.8 15.6-3.8 22.6 0l105.2 56.2L384.2 324.1c-1.3-7.7 1.2-15.5 6.8-21l85.9-85.1L358.6 200.5c-7.8-1.2-14.6-6.1-18.1-13.3L287.9 79z"
+                />
+              </svg>
+            </button>
+          </div>
+
+          <!-- Links To My Pages -->
+          <!-- ---------------------------------------------------------------------------- -->
+          <div class="extensions flex jc-sb ai-c">
+            <button class="flex jc-c ai-c">
+              <!-- Linkdin -->
+              <a
+                target="_blank"
+                href="https://www.linkedin.com/jobs/view/2532365180?_l=en_US"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 448 512"
+                  width="18"
+                  height="18"
+                  fill="#fff"
+                >
+                  <path
+                    d="M100.3 448H7.4V148.9h92.9zM53.8 108.1C24.1 108.1 0 83.5 0 53.8a53.8 53.8 0 0 1 107.6 0c0 29.7-24.1 54.3-53.8 54.3zM447.9 448h-92.7V302.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V448h-92.8V148.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V448z"
+                  />
+                </svg>
+              </a>
+            </button>
+            <button class="flex jc-c ai-c">
+              <!-- Github -->
+              <a
+                target="_blank"
+                href="https://github.com/rrocker89437?tab=overview&from=2025-02-01&to=2025-02-05"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 496 512"
+                  width="18"
+                  height="18"
+                  fill="#fff"
+                >
+                  <path
+                    d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"
+                  />
+                </svg>
+              </a>
+            </button>
+            <button class="flex jc-c ai-c">
+              <!-- Source code -->
+              <a
+                target="_blank"
+                href="https://github.com/rrocker89437/Portfolio"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 640 512"
+                  width="18"
+                  height="18"
+                  fill="#fff"
+                >
+                  <path
+                    d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3L562.7 256l-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"
+                  />
+                </svg>
+              </a>
+            </button>
+            <button title="Seattle, WA" class="flex jc-c ai-c">
+              <!-- Location -->
+              <a href="#">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 384 512"
+                  width="18"
+                  height="18"
+                  fill="#fff"
+                >
+                  <path
+                    d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"
+                  />
+                </svg>
+              </a>
+            </button>
+            <button class="flex jc-c ai-c">
+              <!-- Email Adress -->
+              <a href="mailto:ramiah.rocker@yahoo.com">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 512 512"
+                  width="15"
+                  height="15"
+                  fill="#fff"
+                >
+                  <path
+                    d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48L48 64zM0 176L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-208L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"
+                  />
+                </svg>
+              </a>
+            </button>
+          </div>
+
+          <div class="tab-line"></div>
+
+          <!-- Browser Controls -->
+          <!-- ---------------------------------------------------------------------------- -->
+          <div class="browser-controls flex jc-sb ai-c">
+            <button class="flex jc-c ai-c">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 512 512"
+                width="15"
+                height="15"
+                fill="#fff"
+              >
+                <path
+                  d="M500.3 7.3C507.7 13.3 512 22.4 512 32l0 144c0 26.5-28.7 48-64 48s-64-21.5-64-48s28.7-48 64-48l0-57L352 90.2 352 208c0 26.5-28.7 48-64 48s-64-21.5-64-48s28.7-48 64-48l0-96c0-15.3 10.8-28.4 25.7-31.4l160-32c9.4-1.9 19.1 .6 26.6 6.6zM74.7 304l11.8-17.8c5.9-8.9 15.9-14.2 26.6-14.2l61.7 0c10.7 0 20.7 5.3 26.6 14.2L213.3 304l26.7 0c26.5 0 48 21.5 48 48l0 112c0 26.5-21.5 48-48 48L48 512c-26.5 0-48-21.5-48-48L0 352c0-26.5 21.5-48 48-48l26.7 0zM192 408a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM478.7 278.3L440.3 368l55.7 0c6.7 0 12.6 4.1 15 10.4s.6 13.3-4.4 17.7l-128 112c-5.6 4.9-13.9 5.3-19.9 .9s-8.2-12.4-5.3-19.2L391.7 400 336 400c-6.7 0-12.6-4.1-15-10.4s-.6-13.3 4.4-17.7l128-112c5.6-4.9 13.9-5.3 19.9-.9s8.2 12.4 5.3 19.2zm-339-59.2c-6.5 6.5-17 6.5-23 0L19.9 119.2c-28-29-26.5-76.9 5-103.9c27-23.5 68.4-19 93.4 6.5l10 10.5 9.5-10.5c25-25.5 65.9-30 93.9-6.5c31 27 32.5 74.9 4.5 103.9l-96.4 99.9z"
+                />
+              </svg>
+            </button>
+            <button class="user flex jc-c ai-c">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 320 512"
+                width="15"
+                height="15"
+                fill="#fff"
+              >
+                <path
+                  d="M64 32C28.7 32 0 60.7 0 96L0 288 0 448c0 17.7 14.3 32 32 32s32-14.3 32-32l0-128 95.3 0L261.8 466.4c10.1 14.5 30.1 18 44.6 7.9s18-30.1 7.9-44.6L230.1 309.5C282.8 288.1 320 236.4 320 176c0-79.5-64.5-144-144-144L64 32zM176 256L64 256 64 96l112 0c44.2 0 80 35.8 80 80s-35.8 80-80 80z"
+                />
+              </svg>
+            </button>
+            <button id="controls" class="flex jc-c ai-c">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 128 512"
+                width="18"
+                height="18"
+                fill="#fff"
+              >
+                <path
+                  d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills -->
+      <!-- ---------------------------------------------------------------------------- -->
+      <section class="skills">
+        <div class="wrapper flex ai-c">
+          <button title="Skills" class="skills-btn flex jc-c ai-c">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 448 512"
+              width="16"
+              height="16"
+              fill="#fff"
+            >
+              <path
+                d="M384 96l0 128-128 0 0-128 128 0zm0 192l0 128-128 0 0-128 128 0zM192 224L64 224 64 96l128 0 0 128zM64 288l128 0 0 128L64 416l0-128zM64 32C28.7 32 0 60.7 0 96L0 416c0 35.3 28.7 64 64 64l320 0c35.3 0 64-28.7 64-64l0-320c0-35.3-28.7-64-64-64L64 32z"
+              />
+            </svg>
+          </button>
+
+          <div class="tab-line"></div>
+
+          <button title="Confident" class="skill flex">
+            <img src="./public/html.png" alt="html" />
+            <p>HTML</p>
+          </button>
+          <button title="Confident" class="skill flex">
+            <img src="./public/css3.png" alt="css" />
+            <p>CSS</p>
+          </button>
+          <button title="Confident" class="skill flex">
+            <img src="./public/sass.png" alt="scss" />
+            <p>SCSS</p></button
+          ><button class="skill flex">
+            <img src="./public/tailwind.png" alt="tailwind" />
+            <p>TAILWIND</p></button
+          ><button class="skill flex">
+            <img src="./public/javascript.png" alt="javascript" />
+            <p>JS</p></button
+          ><button class="skill flex">
+            <img src="./public/react.png" alt="react" />
+            <p>REACT</p></button
+          ><button title="Confident" class="skill flex">
+            <img src="./public/visual-studio-code.png" alt="vs-code" />
+            <p>VS CODE</p></button
+          ><button title="Confident" class="skill flex">
+            <img src="./public/github.png" alt="github" />
+            <p>GITHUB</p>
+          </button>
+          <button title="Confident" class="skill flex">
+            <img src="./public/figma.png" alt="figma" />
+            <p>FIGMA</p>
+          </button>
+        </div>
+      </section>
+    </header>
+
+    <main id="main-content" class="content"></main>
+
+    <script type="module" src="./src/app.js"></script>
+  </body>
+</html>
