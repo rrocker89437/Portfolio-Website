@@ -1,133 +1,46 @@
 @use "../util/" as u;
 
-.projects {
-  overflow: hidden;
-  height: 75vh;
-  margin: 0 auto;
-  user-select: none;
+.pad {
+  padding-top: 4rem;
+  width: 90%;
 }
 
-[type="radio"] {
-  display: none;
+.g-card {
+  box-shadow: rgba(46, 61, 73, 0.15) 8px 10px 20px 0px;
+  box-sizing: border-box;
+  color: rgb(82, 92, 101);
+  border-radius: 6px 6px 6px 6px;
+  caret-color: rgb(82, 92, 101);
+  background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  border-top: 3px solid #02b3e4;
 }
-
-#slider {
-  height: 65vw;
-  position: relative;
-  perspective: 1000px;
-  transform-style: preserve-3d;
-}
-
-#slider label {
-  margin: auto;
-  border-radius: 4px;
-  position: absolute;
-  left: 0;
-  right: 0;
-  cursor: pointer;
-  transition: transform 0.4s ease;
-}
-
-#s1:checked ~ #slide4,
-#s2:checked ~ #slide5,
-#s3:checked ~ #slide1,
-#s4:checked ~ #slide2,
-#s5:checked ~ #slide3 {
-  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37);
-  transform: translate3d(-30%, 0, -200px);
-}
-
-#s1:checked ~ #slide5,
-#s2:checked ~ #slide1,
-#s3:checked ~ #slide2,
-#s4:checked ~ #slide3,
-#s5:checked ~ #slide4 {
-  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.3), 0 2px 2px 0 rgba(0, 0, 0, 0.2);
-  transform: translate3d(-15%, 0, -100px);
-}
-
-#s1:checked ~ #slide1,
-#s2:checked ~ #slide2,
-#s3:checked ~ #slide3,
-#s4:checked ~ #slide4,
-#s5:checked ~ #slide5 {
-  box-shadow: 0 13px 25px 0 rgba(0, 0, 0, 0.3), 0 11px 7px 0 rgba(0, 0, 0, 0.19);
-  transform: translate3d(0, 0, 0);
-}
-
-#s1:checked ~ #slide2,
-#s2:checked ~ #slide3,
-#s3:checked ~ #slide4,
-#s4:checked ~ #slide5,
-#s5:checked ~ #slide1 {
-  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.3), 0 2px 2px 0 rgba(0, 0, 0, 0.2);
-  transform: translate3d(15%, 0, -100px);
-}
-
-#s1:checked ~ #slide3,
-#s2:checked ~ #slide4,
-#s3:checked ~ #slide5,
-#s4:checked ~ #slide1,
-#s5:checked ~ #slide2 {
-  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37);
-  transform: translate3d(30%, 0, -200px);
-}
-
-.mkt-3dSlider {
-  padding: 15px 0;
-}
-
-.mkt-3dSlider-title {
-  color: #fff;
-  margin: 0 auto;
+.g-card h4 {
   text-align: center;
-  margin-bottom: 24px;
 }
-
-.mkt-3dSlider-description {
-  color: #fff;
-  text-align: center;
-  margin-bottom: 48px;
+.g-card img {
+  box-shadow: rgba(46, 61, 73, 0.15) 8px 10px 20px 0px;
+  border-radius: 50% 50% 50% 50%;
+  margin: -30px auto auto auto;
+  display: block;
 }
-
-.card-slider {
-  width: 378px;
-  height: 520px;
-
-  background: rgb(66, 66, 66);
-  background: linear-gradient(
-    90deg,
-    rgba(66, 66, 66, 1) 0%,
-    rgba(106, 106, 106, 1) 33%,
-    rgba(102, 102, 102, 1) 63%,
-    rgba(66, 66, 66, 1) 83%
-  );
-  border-radius: u.rem(16);
-  box-shadow: 0 u.rem(4) u.rem(30) rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(3.1px);
-  -webkit-backdrop-filter: blur(3.1px);
-  border: 1px solid rgba(138, 147, 153, 0.31);
-  transition: var(--transition);
-
-  &:hover {
-    transform: scale(1.1);
-    box-shadow: 0 u.rem(4) u.rem(30) rgba(223, 222, 222, 0.24);
-  }
+.carousel .carousel-item > img {
+  width: initial;
 }
-
-#slide1 {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  p {
-    color: #fff;
-    margin-bottom: 10px;
-  }
-
-  img {
-    width: 200px;
-    height: 400px;
-  }
+.carousel .carousel-item > p {
+  padding: 1rem;
+  text-align-last: center;
+}
+.carousel {
+  height: 100vh;
+}
+.carousel .carousel-item {
+  height: initial;
+}
+.carousel .carousel-item {
+  width: 40%;
+}
+.pad.hide-on-med-and-up .g-card {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
 }
