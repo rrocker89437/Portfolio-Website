@@ -49,6 +49,12 @@
         backdrop-filter: blur(3.1px);
         -webkit-backdrop-filter: blur(3.1px);
         border: 1px solid rgba(138, 147, 153, 0.31);
+        transition: var(--transition);
+
+        &:hover {
+          transform: scale(1.1);
+          box-shadow: 0 u.rem(4) u.rem(30) rgba(223, 222, 222, 0.24);
+        }
 
         h3 {
           margin-bottom: u.rem(20);

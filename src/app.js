@@ -37,11 +37,36 @@ const tabData = {
   </div>
   `,
 
-  projects: `<h1> Welcome to the projects page </h1>`,
+  projects: `
+  <section class="projects">
+    <div class="mkt-3dSlider py-6">
+      <h1 class="mkt-3dSlider-title">My Projects</h1>
+      <p class="mkt-3dSlider-description">2024 - 2025</p>
+      <section id="slider">
+        <input class="card-slider" type="radio" name="slider" id="s1">
+        <input class="card-slider" type="radio" name="slider" id="s2">
+        <input class="card-slider" type="radio" name="slider" id="s3" checked>
+        <input class="card-slider" type="radio" name="slider" id="s4">
+        <input class="card-slider"type="radio" name="slider" id="s5">
+
+        <label for="s1" id="slide1" class="card-slider">
+          <p>Chrome Extension</P>
+          <img src="../public/ChromeExtension.png" alt="">
+        </label>
+
+        <label for="s2" id="slide2" class="card-slider"></label>
+        <label for="s3" id="slide3" class="card-slider"></label>
+        <label for="s4" id="slide4" class="card-slider"></label>
+        <label for="s5" id="slide5" class="card-slider"></label>
+      </section>
+    </div>  
+  </section>
+  `,
 
   contact: `<h1> Welcome to the contact page </h1>`,
 };
 
+// HEADER LOGIC
 const tabs = document.querySelectorAll(".tab");
 
 // Function to load content based on the active tab
@@ -86,4 +111,94 @@ tabs.forEach((tab) => {
 window.addEventListener("DOMContentLoaded", () => {
   const defaultTab = document.querySelector('.tab[data-content="home"]');
   setActiveTab(defaultTab); // Ensure we call setActiveTab for the default tab
+});
+
+// Project PAGE LOGIC
+var cardSpaces = 25;
+var middleDistance = 200;
+
+var nxtVal = middleDistance;
+middleDistance -= cardSpaces;
+$(".next").each(function () {
+  $(this).attr("elad-translate", nxtVal);
+  $(this).css(
+    "transform",
+    "translateX(calc(-50% + " + nxtVal + "px)) rotateY(-70deg) skewY(9deg)"
+  );
+  nxtVal += cardSpaces;
+});
+
+$("#navright").click(function () {
+  if ($(".active").next().hasClass("slideItems")) {
+    $(".active")
+      .removeClass("active")
+      .addClass("prev")
+      .attr("elad-translate", middleDistance)
+      .next()
+      .addClass("active")
+      .removeClass("next")
+      .removeAttr("style")
+      .attr("elad-translate", "0");
+
+    $(".next").each(function () {
+      var thisTrans = parseInt($(this).attr("elad-translate")) - cardSpaces;
+      $(this).css(
+        "transform",
+        "translateX(calc(-50% + " +
+          thisTrans +
+          "px)) rotateY(-70deg) skewY(9deg)"
+      );
+      $(this).attr("elad-translate", thisTrans);
+      // nxtVal+=cardSpaces;
+    });
+
+    $(".prev").each(function () {
+      var thisTrans = parseInt($(this).attr("elad-translate")) + cardSpaces;
+      $(this).css(
+        "transform",
+        "translateX(calc(-50% - " +
+          thisTrans +
+          "px)) rotateY(70deg) skewY(-9deg)"
+      );
+      $(this).attr("elad-translate", thisTrans);
+      // nxtVal+=cardSpaces;
+    });
+  }
+});
+$("#navleft").click(function () {
+  if ($(".active").prev().hasClass("slideItems")) {
+    $(".active")
+      .removeClass("active")
+      .addClass("next")
+      .attr("elad-translate", middleDistance)
+      .prev()
+      .addClass("active")
+      .removeClass("prev")
+      .removeAttr("style")
+      .attr("elad-translate", "0");
+
+    $(".next").each(function () {
+      var thisTrans = parseInt($(this).attr("elad-translate")) + cardSpaces;
+      $(this).css(
+        "transform",
+        "translateX(calc(-50% + " +
+          thisTrans +
+          "px)) rotateY(-70deg) skewY(9deg)"
+      );
+      $(this).attr("elad-translate", thisTrans);
+      // nxtVal+=cardSpaces;
+    });
+
+    $(".prev").each(function () {
+      var thisTrans = parseInt($(this).attr("elad-translate")) - cardSpaces;
+      $(this).css(
+        "transform",
+        "translateX(calc(-50% - " +
+          thisTrans +
+          "px)) rotateY(70deg) skewY(-9deg)"
+      );
+      $(this).attr("elad-translate", thisTrans);
+      // nxtVal+=cardSpaces;
+    });
+  }
 });
