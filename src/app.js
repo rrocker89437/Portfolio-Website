@@ -38,85 +38,171 @@ const tabData = {
   `,
 
   projects: `
-  <section class="projects flex">
-    <div class="row pad carousel hide-on-small-only">
-      <a href="#one!" class="g-card carousel-item">
-        <img alt="Kelly" src="https://d125fmws0bore1.cloudfront.net/assets/pages/ndhub/student-kelly@1x-26d7fa87c4776210d14b90323b9a24a7bc06001d147a465bfbbdf6d424e60563.jpg" id="IMG_2" />
-        <h4>Kelly</h4>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-      </a>
-      <a href="#two!" class="g-card carousel-item">
-        <img alt="Kelly" src="https://d125fmws0bore1.cloudfront.net/assets/pages/ndhub/student-kelly@1x-26d7fa87c4776210d14b90323b9a24a7bc06001d147a465bfbbdf6d424e60563.jpg" id="IMG_2" />
-        <h4>Kelly</h4>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-      </a>
-      <a href="#three!" class="g-card carousel-item">
-        <img alt="Kelly" src="https://d125fmws0bore1.cloudfront.net/assets/pages/ndhub/student-kelly@1x-26d7fa87c4776210d14b90323b9a24a7bc06001d147a465bfbbdf6d424e60563.jpg" id="IMG_2" />
-        <h4>Kelly</h4>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-      </a>
-    </div>
-
-    <div class="row pad hide-on-med-and-up">
-      <div class="col s12 m4 g-card">
-        <img alt="Kelly" src="https://d125fmws0bore1.cloudfront.net/assets/pages/ndhub/student-kelly@1x-26d7fa87c4776210d14b90323b9a24a7bc06001d147a465bfbbdf6d424e60563.jpg" id="IMG_2" />
-        <h4>Kelly</h4>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+  <section class="projects flex jc-c ai-c">
+    <div class="carousel-container">
+          <div class="carousel">
+              <div class="card">
+                <h3>Chrome Extension App</h3>
+                <div class="icons flex jc-c">
+                  <img src="../public/html.png" alt="HTML">
+                  <img src="../public/css3.png" alt="CSS">
+                  <img src="../public/javascript.png" alt="JS">
+                </div>
+                <div class="card-img">
+                  <img src="../public/ChromeExtension.png" alt="">
+                </div>
+                <div class="card-btns">
+                  <a class="card-btn--1" href="#">Source Code</a>
+                  <a class="card-btn--2" href="#">Contact</a>
+                </div>
+              </div>
+              <div class="card">2</div>
+              <div class="card">3</div>
+              <div class="card">4</div>
+              <div class="card">5</div>
+              <div class="card">6</div>
+              <div class="card">7</div>
+              <div class="card">8</div>
+              <div class="card">9</div>
+          </div>
       </div>
-      <div class="col s12 m4 g-card">
-        <img alt="Kelly" src="https://d125fmws0bore1.cloudfront.net/assets/pages/ndhub/student-kelly@1x-26d7fa87c4776210d14b90323b9a24a7bc06001d147a465bfbbdf6d424e60563.jpg" id="IMG_2" />
-        <h4>Kelly</h4>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-      </div>
-      <div class="col s12 m4 g-card">
-        <img alt="Kelly" src="https://d125fmws0bore1.cloudfront.net/assets/pages/ndhub/student-kelly@1x-26d7fa87c4776210d14b90323b9a24a7bc06001d147a465bfbbdf6d424e60563.jpg" id="IMG_2" />
-        <h4>Kelly</h4>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-      </div>
-    </div>
   </section>
   `,
 
   contact: `<h1> Welcome to the contact page </h1>`,
 };
 
-// HEADER LOGIC
-const tabs = document.querySelectorAll(".tab");
+//* HEADER LOGIC
+//*------------------------------------------------------
+//*------------------------------------------------------
+//*------------------------------------------------------
+//*------------------------------------------------------
+//*------------------------------------------------------
+
+//* Utility Functions
+//*------------------------------------------------------
 
 // Function to load content based on the active tab
 function loadContent(contentKey) {
   const mainContent = document.getElementById("main-content");
   mainContent.innerHTML = tabData[contentKey] || `<p>Content not found.</p>`;
+  if (contentKey === "projects") {
+    initializeCarousel();
+  }
 }
 
-// Function to set the active tab
-function setActiveTab(tab) {
-  if (!tab) return; // Add a safety check to ensure the tab exists
+// Function to initialize the carousel
+function initializeCarousel() {
+  const carousel = document.querySelector(".carousel");
+  if (!carousel) {
+    console.error("Carousel element not found! Check your HTML.");
+    return;
+  }
+  startCarousel(carousel);
+}
 
-  // Remove the 'tab-active' class and the '.bar' element from all tabs
+//* Carousel Logic
+//*------------------------------------------------------
+
+function startCarousel(carousel) {
+  let activeCard = null;
+  let isPaused = false;
+  let position = 0;
+  const scrollSpeed = 0.3; // Adjusted for smoother scrolling
+  const cardWidth = 400; // Card width (in px)
+  const cardHeight = 600; // Card height (in px)
+  const totalCards = carousel.children.length;
+
+  // Duplicate cards to create an illusion of infinite scrolling
+  function duplicateCards() {
+    const cards = Array.from(carousel.children);
+    cards.forEach((card) => {
+      const clone = card.cloneNode(true);
+      carousel.appendChild(clone);
+    });
+  }
+  duplicateCards();
+
+  // Animate carousel
+  function animateCarousel() {
+    if (!isPaused) {
+      position -= scrollSpeed;
+      if (Math.abs(position) >= cardWidth * totalCards) {
+        position = 0; // Reset position to start of the carousel
+      }
+      carousel.style.transform = `translateX(${position}px)`;
+    }
+    requestAnimationFrame(animateCarousel);
+  }
+
+  animateCarousel();
+
+  // Card event listeners
+  document.querySelectorAll(".card").forEach((card) => {
+    card.addEventListener("mouseenter", () => {
+      isPaused = true;
+    });
+    card.addEventListener("mouseleave", () => {
+      if (!activeCard) isPaused = false;
+    });
+    card.addEventListener("click", (e) => toggleCardActive(e, card));
+  });
+
+  // Toggle active card and pause scrolling
+  function toggleCardActive(e, card) {
+    if (activeCard) activeCard.classList.remove("active");
+    if (activeCard !== card) {
+      activeCard = card;
+      activeCard.classList.add("active");
+      activeCard.style.transform = "scale(1.1)"; // Scale card by 1.5x
+      isPaused = true;
+    } else {
+      activeCard = null;
+      isPaused = false;
+    }
+  }
+
+  // Reset active card if clicked outside
+  document.addEventListener("click", (e) => {
+    if (!e.target.classList.contains("card")) {
+      resetActiveCard();
+    }
+  });
+
+  function resetActiveCard() {
+    if (activeCard) {
+      activeCard.classList.remove("active");
+      activeCard.style.transform = "scale(1)"; // Reset size
+    }
+    activeCard = null;
+    isPaused = false;
+  }
+}
+
+//* Tab Logic
+//*------------------------------------------------------
+
+const tabs = document.querySelectorAll(".tab");
+
+function setActiveTab(tab) {
   tabs.forEach((t) => {
     t.classList.remove("tab-active");
     const barElement = t.querySelector(".bar");
     if (barElement) barElement.remove();
   });
 
-  // Add 'tab-active' class to the clicked tab
   tab.classList.add("tab-active");
-
-  // Create and append a new bar element to the clicked tab
   const bar = document.createElement("div");
   bar.classList.add("bar");
   tab.appendChild(bar);
 
-  // Load the corresponding content
   const contentKey = tab.getAttribute("data-content");
   loadContent(contentKey);
 }
 
-// Add event listeners to all tabs
 tabs.forEach((tab) => {
-  tab.addEventListener("click", function (event) {
-    event.preventDefault(); // Prevent default link behavior
+  tab.addEventListener("click", (event) => {
+    event.preventDefault();
     setActiveTab(tab);
   });
 });
@@ -124,17 +210,5 @@ tabs.forEach((tab) => {
 // Set "home" tab as active on page load
 window.addEventListener("DOMContentLoaded", () => {
   const defaultTab = document.querySelector('.tab[data-content="home"]');
-  setActiveTab(defaultTab); // Ensure we call setActiveTab for the default tab
-});
-
-// Project PAGE LOGIC
-document.addEventListener("DOMContentLoaded", function () {
-  var carousels = document.querySelectorAll(".carousel");
-
-  carousels.forEach(function (carousel) {
-    M.Carousel.init(carousel, {
-      padding: 800,
-      dist: -200,
-    });
-  });
+  setActiveTab(defaultTab);
 });
