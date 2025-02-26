@@ -155,7 +155,7 @@ const tabData = {
         <form class="custom-form">
           <div class="form-container">
             <h1>Contact Us</h1>
-            <p>We’d love to hear from you! Please fill out the form below.</p>
+            <p>I’d love to hear from you! Please fill out the form below.</p>
 
             <div class="form-group">
               <label for="name">Name *</label>

@@ -23,7 +23,8 @@ h1 {
 p {
   text-align: center;
   font-size: 0.9rem;
-  color: #666;
+  color: #fff;
+  margin-bottom: 1rem;
 }
 
 .form-group {
@@ -58,6 +59,7 @@ p {
 
 .checkbox-group {
   display: flex;
+  justify-content: center;
   align-items: center;
   gap: 10px;
 
