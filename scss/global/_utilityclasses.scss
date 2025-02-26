@@ -6,12 +6,20 @@
   padding: u.rem(8) u.rem(6);
 }
 
+.show {
+  display: block;
+}
+
 .bg-tabs {
   background-color: var(--bg-tabs);
 }
 
 .flex {
   display: flex;
+}
+
+.gap {
+  gap: u.rem(20);
 }
 
 .jc-c {
@@ -32,4 +40,14 @@
 
 .mb-30 {
   margin-bottom: u.rem(30);
+}
+
+.align-center {
+  text-align: center;
+}
+
+.grid {
+  display: grid;
+  justify-content: center;
+  align-items: center;
 }

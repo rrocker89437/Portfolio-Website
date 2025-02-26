@@ -78,6 +78,17 @@
             transform: scale(1.4);
           }
         }
+
+        .password-img,
+        .bento-img {
+          width: u.rem(250);
+          height: auto;
+        }
+
+        .blackjack-img {
+          width: u.rem(250);
+          height: auto;
+        }
       }
 
       .card-btns {

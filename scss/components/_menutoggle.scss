@@ -1,0 +1,30 @@
+@use "../util/" as u;
+
+#toggleBtn,
+.browser-controls {
+  position: relative;
+}
+
+.menu {
+  position: absolute;
+  top: u.rem(40);
+  right: 10%;
+  z-index: 999;
+  grid-template-columns: 1fr;
+  gap: u.rem(10);
+  padding: u.rem(30);
+
+  border-radius: var(--b-rad);
+  border: 1px solid var(--tc-white);
+  background-color: var(--tc-black);
+
+  a {
+    padding: u.rem(5) u.rem(15);
+    border-radius: var(--b-rad);
+    transition: var(--transition);
+
+    &:hover {
+      background-color: var(--bg-tabs-hover);
+    }
+  }
+}
