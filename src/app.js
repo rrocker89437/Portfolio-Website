@@ -154,29 +154,24 @@ const tabData = {
       <div class="flex jc-c ai-c">
         <form class="custom-form">
           <div class="form-container">
-            <h1>Contact Us</h1>
+            <h1>Contact Me</h1>
             <p>I’d love to hear from you! Please fill out the form below.</p>
-
-            <div class="form-group">
-              <label for="name">Name *</label>
-              <input type="text" id="name" placeholder="Enter your name" required>
-            </div>
-
-            <div class="form-group">
-              <label for="email">Email *</label>
-              <input type="email" id="email" placeholder="Enter your email" required>
-            </div>
-
-            <div class="form-group">
-              <label for="message">Message *</label>
-              <textarea id="message" placeholder="Type your message..." required></textarea>
-            </div>
 
             <p class="required-msg">* Required fields</p>
 
-            <div class="form-group checkbox-group">
-              <input type="checkbox" id="terms" required>
-              <label for="terms">I agree to the <a href="#">terms and conditions</a>.</label>
+            <div class="form-group">
+              <label for="name">Name <span class="required">*</span></label>
+              <input type="text" id="name" placeholder="John Doe" required>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email <span class="required">*</span></label>
+              <input type="email" id="email" placeholder="J.doe@email.com" required>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message <span class="required">*</span></label>
+              <textarea id="message" placeholder="Type your message..." required></textarea>
             </div>
 
             <div class="form-actions">
@@ -191,33 +186,29 @@ const tabData = {
   `,
 };
 
-//* HEADER LOGIC
-//*------------------------------------------------------
-//*------------------------------------------------------
-//*------------------------------------------------------
-//*------------------------------------------------------
-//*------------------------------------------------------
-
-//* Menu Btn
-//*------------------------------------------------------
-
+// Runs once the DOM is fully loaded
 document.addEventListener("DOMContentLoaded", () => {
+  initializeMenu(); // Setup menu toggle functionality
+  initializeTabs(); // Setup tab functionality
+  loadContent("home"); // Load home tab by default
+});
+
+// Initializes the menu toggle button and its interactions.
+function initializeMenu() {
   const toggleBtn = document.getElementById("controls toggleBtn");
   const menuToggle = document.getElementById("menuToggle");
   const menuLinks = document.querySelectorAll("#menuToggle a");
-  const mainContent = document.getElementById("main-content");
 
-  // Ensure menu is hidden by default
+  if (!toggleBtn || !menuToggle) return;
+
   menuToggle.style.display = "none";
 
-  // Toggle menu visibility
   toggleBtn.addEventListener("click", (event) => {
-    event.stopPropagation(); // Prevent click event from bubbling up
+    event.stopPropagation();
     menuToggle.style.display =
       menuToggle.style.display === "grid" ? "none" : "grid";
   });
 
-  // Close menu when clicking outside
   document.addEventListener("click", (event) => {
     if (
       !toggleBtn.contains(event.target) &&
@@ -227,77 +218,83 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Function to load content dynamically
-  function loadContent(contentKey) {
-    mainContent.innerHTML = tabData[contentKey] || `<p>Content not found.</p>`;
-    if (contentKey === "projects") {
-      initializeCarousel();
-    }
-  }
-
-  // Add event listeners to menu links
   menuLinks.forEach((link) => {
     link.addEventListener("click", (event) => {
       event.preventDefault();
-      const contentKey = link.getAttribute("data-content");
-      loadContent(contentKey);
-
-      // Hide the menu after selecting an option
+      loadContent(link.getAttribute("data-content"));
       menuToggle.style.display = "none";
     });
   });
-});
+}
 
-//* Utility Functions
-//*------------------------------------------------------
-
-// Function to load content based on the active tab
+// Loads the content dynamically based on the selected tab.
+// @param {string} contentKey - The key corresponding to tabData.
 function loadContent(contentKey) {
   const mainContent = document.getElementById("main-content");
+  if (!mainContent) return;
+
   mainContent.innerHTML = tabData[contentKey] || `<p>Content not found.</p>`;
+
   if (contentKey === "projects") {
     initializeCarousel();
+  } else if (contentKey === "contact") {
+    initializeFormValidation();
   }
 }
 
-// Function to initialize the carousel
+// Initializes tab functionality, adding click events to switch content.
+function initializeTabs() {
+  const tabs = document.querySelectorAll(".tab");
+
+  tabs.forEach((tab) => {
+    tab.addEventListener("click", (event) => {
+      event.preventDefault();
+      setActiveTab(tab);
+    });
+  });
+
+  const defaultTab = document.querySelector('.tab[data-content="home"]');
+  if (defaultTab) setActiveTab(defaultTab);
+}
+
+// Sets the active tab and updates the content.
+// @param {Element} tab - The clicked tab element.
+function setActiveTab(tab) {
+  document.querySelectorAll(".tab").forEach((t) => {
+    t.classList.remove("tab-active");
+    const bar = t.querySelector(".bar");
+    if (bar) bar.remove();
+  });
+
+  tab.classList.add("tab-active");
+  const bar = document.createElement("div");
+  bar.classList.add("bar");
+  tab.appendChild(bar);
+
+  loadContent(tab.getAttribute("data-content"));
+}
+
+// Initializes the automatic scrolling carousel.
 function initializeCarousel() {
   const carousel = document.querySelector(".carousel");
-  if (!carousel) {
-    console.error("Carousel element not found! Check your HTML.");
-    return;
-  }
-  startCarousel(carousel);
-}
+  if (!carousel) return console.error("Carousel element not found!");
 
-//* Carousel Logic
-//*------------------------------------------------------
-
-function startCarousel(carousel) {
-  let activeCard = null;
-  let isPaused = false;
   let position = 0;
-  const scrollSpeed = 1.8; // Adjusted for smoother scrolling
-  const cardWidth = 400; // Card width (in px)
-  const cardHeight = 600; // Card height (in px)
+  const scrollSpeed = 1.8;
+  const cardWidth = 400;
   const totalCards = carousel.children.length;
+  let isPaused = false;
 
-  // Duplicate cards to create an illusion of infinite scrolling
-  function duplicateCards() {
-    const cards = Array.from(carousel.children);
-    cards.forEach((card) => {
-      const clone = card.cloneNode(true);
-      carousel.appendChild(clone);
-    });
-  }
-  duplicateCards();
+  // Duplicate cards for seamless infinite scrolling
+  Array.from(carousel.children).forEach((card) => {
+    carousel.appendChild(card.cloneNode(true));
+  });
 
-  // Animate carousel
   function animateCarousel() {
     if (!isPaused) {
       position -= scrollSpeed;
       if (Math.abs(position) >= cardWidth * totalCards) {
-        position = 0; // Reset position to start of the carousel
+        position = 0;
       }
       carousel.style.transform = `translateX(${position}px)`;
     }
@@ -306,142 +303,50 @@ function startCarousel(carousel) {
 
   animateCarousel();
 
-  // Card event listeners
   document.querySelectorAll(".card").forEach((card) => {
-    card.addEventListener("mouseenter", () => {
-      isPaused = true;
-    });
-    card.addEventListener("mouseleave", () => {
-      if (!activeCard) isPaused = false;
-    });
-    card.addEventListener("click", (e) => toggleCardActive(e, card));
+    card.addEventListener("mouseenter", () => (isPaused = true));
+    card.addEventListener("mouseleave", () => (isPaused = false));
+    card.addEventListener("click", () => toggleCardActive(card));
   });
-
-  // Toggle active card and pause scrolling
-  function toggleCardActive(e, card) {
-    if (activeCard) activeCard.classList.remove("active");
-    if (activeCard !== card) {
-      activeCard = card;
-      activeCard.classList.add("active");
-      activeCard.style.transform = "scale(1.1)"; // Scale card by 1.5x
-      isPaused = true;
-    } else {
-      activeCard = null;
-      isPaused = false;
-    }
-  }
-
-  // Reset active card if clicked outside
-  document.addEventListener("click", (e) => {
-    if (!e.target.classList.contains("card")) {
-      resetActiveCard();
-    }
-  });
-
-  function resetActiveCard() {
-    if (activeCard) {
-      activeCard.classList.remove("active");
-      activeCard.style.transform = "scale(1)"; // Reset size
-    }
-    activeCard = null;
-    isPaused = false;
-  }
 }
 
-//* Tab Logic
-//*------------------------------------------------------
+// Toggles the active state of a clicked carousel card.
+// @param {Element} card - The clicked card element.
 
-const tabs = document.querySelectorAll(".tab");
-
-function setActiveTab(tab) {
-  tabs.forEach((t) => {
-    t.classList.remove("tab-active");
-    const barElement = t.querySelector(".bar");
-    if (barElement) barElement.remove();
-  });
-
-  tab.classList.add("tab-active");
-  const bar = document.createElement("div");
-  bar.classList.add("bar");
-  tab.appendChild(bar);
-
-  const contentKey = tab.getAttribute("data-content");
-  loadContent(contentKey);
+function toggleCardActive(card) {
+  document
+    .querySelectorAll(".card")
+    .forEach((c) => c.classList.remove("active"));
+  card.classList.toggle("active");
 }
 
-tabs.forEach((tab) => {
-  tab.addEventListener("click", (event) => {
-    event.preventDefault();
-    setActiveTab(tab);
-  });
-});
+// Initializes form validation on the contact page.
+function initializeFormValidation() {
+  const form = document.querySelector(".custom-form");
+  if (!form) return;
 
-// Set "home" tab as active on page load
-window.addEventListener("DOMContentLoaded", () => {
-  const defaultTab = document.querySelector('.tab[data-content="home"]');
-  setActiveTab(defaultTab);
-});
+  const inputs = form.querySelectorAll("input[required], textarea[required]");
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const resetBtn = form.querySelector('button[type="reset"]');
+  const termsCheckbox = document.getElementById("terms");
+  const requiredMsg = document.querySelector(".required-msg");
 
-//* Contact Form
-//*------------------------------------------------------
-document.addEventListener("DOMContentLoaded", function () {
-  const mainContent = document.getElementById("main-content"); // Where content is inserted
-  const tabs = document.querySelectorAll(".tab");
+  function checkFormValidity() {
+    const allFilled = [...inputs].every((input) => input.value.trim() !== "");
+    // const termsChecked = termsCheckbox.checked;
 
-  // Function to load content dynamically
-  function loadContent(contentKey) {
-    mainContent.innerHTML = tabData[contentKey] || `<p>Content not found.</p>`;
-
-    // Reinitialize form validation if "contact" tab is loaded
-    if (contentKey === "contact") {
-      initializeFormValidation();
-    }
+    submitBtn.disabled = !allFilled; //&& termsChecked
+    resetBtn.disabled = !allFilled;
+    requiredMsg.style.display = allFilled ? "none" : "block";
   }
 
-  // Attach event listeners to tab links
-  tabs.forEach((tab) => {
-    tab.addEventListener("click", (event) => {
-      event.preventDefault();
-      const contentKey = tab.getAttribute("data-content");
-      loadContent(contentKey);
-    });
+  inputs.forEach((input) => {
+    input.addEventListener("input", checkFormValidity);
+    input.addEventListener("change", checkFormValidity);
   });
 
-  // Function to initialize form validation (runs when "contact" tab loads)
-  function initializeFormValidation() {
-    const form = document.querySelector(".custom-form");
-    if (!form) return; // Prevents errors if form isn't found
+  termsCheckbox.addEventListener("change", checkFormValidity);
 
-    const inputs = form.querySelectorAll("input[required], textarea[required]");
-    const submitBtn = form.querySelector('button[type="submit"]');
-    const resetBtn = form.querySelector('button[type="reset"]');
-    const termsCheckbox = document.getElementById("terms");
-    const requiredMsg = document.querySelector(".required-msg");
-
-    function checkFormValidity() {
-      const allFilled = [...inputs].every((input) => input.value.trim() !== "");
-      const termsChecked = termsCheckbox.checked;
-
-      submitBtn.disabled = !(allFilled && termsChecked);
-      resetBtn.disabled = !allFilled;
-      requiredMsg.style.display = allFilled ? "none" : "block";
-    }
-
-    // Add event listeners for input changes
-    inputs.forEach((input) => {
-      input.addEventListener("input", checkFormValidity);
-      input.addEventListener("change", checkFormValidity);
-    });
-
-    termsCheckbox.addEventListener("change", checkFormValidity);
-
-    form.addEventListener("reset", function () {
-      setTimeout(checkFormValidity, 0);
-    });
-
-    checkFormValidity(); // Run once when form loads
-  }
-
-  // Load "home" tab by default
-  loadContent("home");
-});
+  form.addEventListener("reset", () => setTimeout(checkFormValidity, 0));
+  checkFormValidity();
+}
