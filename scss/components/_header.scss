@@ -170,6 +170,14 @@ header {
       }
     }
 
+    .nav-buttons {
+      margin-right: u.rem(10);
+    }
+
+    .extensions {
+      margin-left: u.rem(10);
+    }
+
     .nav-buttons,
     .extensions,
     .browser-controls {
@@ -184,7 +192,7 @@ header {
     }
 
     input {
-      width: 246%;
+      width: u.rem(712);
       padding: u.rem(2) u.rem(40); /* Ensure padding accounts for icons */
       border: none;
       background-color: var(--bg-search-bar);
@@ -206,11 +214,11 @@ header {
     }
 
     .svg-toggle-right {
-      right: u.rem(10); //10px
+      right: u.rem(-8); //10px
     }
 
     .tab-line {
-      margin-left: u.rem(10);
+      // margin-left: u.rem(10);
       width: u.rem(1);
       height: u.rem(24);
       background-color: var(--bg-tab-line-lt);

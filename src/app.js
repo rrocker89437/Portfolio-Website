@@ -1,7 +1,18 @@
 import "../scss/style.scss";
 
 const tabData = {
-  home: ` <h1> Welcome to the homepage</h1>
+  home: `
+  <section id="home" class="home flex jc-c ai-c">
+    <h1>Google Clone</h1>
+    <button id="toggle-btn" class="toggle-btn">Toggle Dark Mode</button>
+    <div class="google-search">
+      <input type="text" id="searchBox">
+      <span class="placeholder">Search Google or type a URL</span>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg>
+    </div>
+    <br>
+    <button id="search-btn" class="search-btn">Search</button>
+  </section>
   `,
 
   about: `
@@ -273,6 +284,46 @@ function setActiveTab(tab) {
 
   loadContent(tab.getAttribute("data-content"));
 }
+
+// HomePAGE
+document.addEventListener("DOMContentLoaded", function () {
+  const searchbtn = document.getElementById("search-btn");
+  const togglebtn = document.getElementById("toggle-btn");
+  const home = document.getElementById("home");
+
+  function searchGoogle() {
+    let query = document.getElementById("searchBox").value;
+    if (query) {
+      // Open the Google search in a new tab
+      window.open(`https://www.google.com/search?q=${query}`, "_blank");
+    }
+  }
+
+  function toggleDarkMode() {
+    if (home) {
+      home.classList.toggle("dark-mode");
+    } else {
+      console.error("Home element not found!");
+    }
+  }
+
+  if (searchbtn) {
+    searchbtn.addEventListener("click", () => {
+      console.log("Clicked");
+      searchGoogle();
+    });
+  } else {
+    console.error("Search button not found!");
+  }
+
+  if (togglebtn) {
+    togglebtn.addEventListener("click", () => {
+      toggleDarkMode();
+    });
+  } else {
+    console.error("Toggle button not found!");
+  }
+});
 
 // Initializes the automatic scrolling carousel.
 function initializeCarousel() {
