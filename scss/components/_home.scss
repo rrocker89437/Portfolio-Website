@@ -11,17 +11,19 @@
   border-radius: u.rem(30);
   transition: background 0.3s, color 0.3s;
 
-  h1 {
-    margin-bottom: u.rem(40);
+  img {
+    width: u.rem(400);
+    height: u.rem(150);
+    margin-bottom: u.rem(0);
     font-family: "Noto Sans", sans-serif;
-    font-size: u.rem(70);
   }
 
   .google-search {
     position: relative;
+    margin-bottom: u.rem(25);
+    height: u.rem(45);
 
     input {
-      margin-bottom: u.rem(30);
       padding: u.rem(10);
       padding-right: 40px;
       width: 400px;
@@ -46,7 +48,6 @@
   }
 
   button {
-    margin-top: 10px;
     padding: 10px 20px;
     font-size: 16px;
     border: none;
