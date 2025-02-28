@@ -9,6 +9,10 @@
   margin: 0;
 }
 
+html {
+  cursor: url("/public/arrowhead-rounded-outline.svg"), auto;
+}
+
 body {
   font-family: var(--font-body);
   line-height: 1.5;

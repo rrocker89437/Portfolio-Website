@@ -203,11 +203,10 @@ header {
 
     .svg-toggle-left {
       left: u.rem(4);
-      z-index: 1;
     }
 
     .svg-toggle-right {
-      right: u.rem(-220); //10px
+      right: u.rem(10); //10px
     }
 
     .tab-line {
