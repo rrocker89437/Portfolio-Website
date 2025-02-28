@@ -31,7 +31,18 @@
     }
 
     .about-img {
+      position: relative;
+      width: 350px;
+      height: 350px;
+      border-radius: 50%;
+      overflow: hidden;
+      padding: 10px;
+      animation: circle-border 3s infinite;
+
       img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
         border-radius: 50%;
       }
     }
@@ -70,5 +81,22 @@
         }
       }
     }
+  }
+}
+
+@keyframes circle-border {
+  0% {
+    transform: scale(1);
+    border: 5px solid rgba(0, 0, 0, 0.5);
+  }
+  50% {
+    transform: scale(1.05);
+    border: 5px solid var(--project-btn-neon);
+    box-shadow: inset 0 0 0.5em 0 var(--project-btn-neon),
+      0 0 0.5em 0 var(--project-btn-neon);
+  }
+  100% {
+    transform: scale(1);
+    border: 5px solid rgba(0, 0, 0, 0.5);
   }
 }

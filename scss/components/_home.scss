@@ -21,8 +21,9 @@
     position: relative;
 
     input {
+      margin-bottom: u.rem(30);
       padding: u.rem(10);
-      padding-right: 40px; /* Add right padding to make space for the SVG */
+      padding-right: 40px;
       width: 400px;
       font-size: 16px;
       border: 1px solid #ccc;
@@ -40,8 +41,7 @@
       position: absolute;
       width: u.rem(30);
       right: u.rem(10);
-      top: 50%;
-      transform: translateY(-50%);
+      top: u.rem(8);
     }
   }
 
@@ -56,14 +56,15 @@
 
   .search-btns {
     button {
-      background-color: #4285f4;
+      border: 2px solid var(--project-btn-neon);
+      background-color: var(--project-btn-neon);
       border-radius: 20px;
-      color: white;
+      color: rgb(0, 0, 0);
     }
 
     .lucky-btn {
-      background-color: rgba(66, 134, 244, 0.247);
-      border: 2px solid #4285f4;
+      box-shadow: inset 0 0 0.5em 0 var(--project-btn-neon),
+        0 0 0.5em 0 var(--project-btn-neon);
     }
   }
 
@@ -74,7 +75,7 @@
     margin: 20px 0;
     background-color: transparent;
     border: 1px solid #fff;
-    box-shadow: 5px 8px 10px #000;
+    box-shadow: inset 0px 0px 20px 3px #000;
 
     svg {
       width: 30px;
