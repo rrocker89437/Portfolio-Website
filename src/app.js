@@ -175,7 +175,7 @@ const tabData = {
             </div>
 
             <div class="form-actions">
-              <button class="btn" type="submit" disabled>Submit</button>
+              <button class="btn" type="submit" disabled>Send</button>
               <button class="btn btn-reset" type="reset" disabled>Reset</button>
             </div>
           </div>
